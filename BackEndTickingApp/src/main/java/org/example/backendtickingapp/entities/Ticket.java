@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.example.backendtickingapp.model.TicketStatus;
 
+import java.time.LocalDateTime;
+
 @Entity(name= "tickets")
 public class Ticket {
 
@@ -11,7 +13,8 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
+    @Column(name = "username")
+    private String username;
     @Column(name = "price")
     private double price;
     @Column(nullable = false, name = "description", length = 500)
@@ -19,13 +22,33 @@ public class Ticket {
     private String description;
     @Enumerated(EnumType.STRING)
     private TicketStatus status;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     public Ticket() {
     }
-    public Ticket(double price, String description, TicketStatus status) {
+
+    public Ticket(String username, double price, String description, TicketStatus status) {
+        this.username = username;
         this.price = price;
         this.description = description;
         this.status = status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Long getId() {

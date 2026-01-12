@@ -20,6 +20,7 @@ public class EmployeeController {
     @PostMapping("/registerEmployee")
     public ResponseEntity<Employee> register(@RequestBody Employee employee) {
         employee = this.employeeService.register(employee);
+        employee.setPassword(null); // avoid returning password
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
 

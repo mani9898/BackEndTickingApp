@@ -36,4 +36,9 @@ public class EmployeeService {
         employee = employeeRepository.save(employee);
         return employee;
     }
+
+    public boolean isEmployeeExists(String username) {
+        return employeeRepository.findByUsername(username) != null;
+    }
+
 }
