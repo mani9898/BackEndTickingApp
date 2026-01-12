@@ -22,9 +22,12 @@ public class Employee {
 
     public Employee() {
     }
-    public Employee(String username, String password) {
+
+    public Employee(Long id, String username, String password, EmployeeRole role) {
+        this.id = id;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
