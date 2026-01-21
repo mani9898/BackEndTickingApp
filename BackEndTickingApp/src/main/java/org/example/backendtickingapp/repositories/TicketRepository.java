@@ -17,4 +17,7 @@ public interface TicketRepository extends JpaRepository<Ticket,Long> {
     List<Ticket> findByUsername(String userName);
 
     List<Ticket> findByUsernameOrderByCreatedAtAsc(String username);
+
+    void deleteById(Long id);
+
 }

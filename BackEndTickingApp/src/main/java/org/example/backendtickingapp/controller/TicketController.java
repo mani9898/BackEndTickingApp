@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class TicketController {
 
     @Autowired
@@ -53,6 +54,16 @@ public class TicketController {
     public ResponseEntity<List<Ticket>> getTicketsByUserName(@PathVariable String userName) {
         List<Ticket> tickets = ticketService.findAllTicketsByAccendingDate(userName);
         return new ResponseEntity<>(tickets, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/tickets/{ticketId}")
+    public ResponseEntity<HttpStatus> deleteTicket(@PathVariable Long ticketId) {
+        try {
+            ticketService.deleteTicketById(ticketId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
