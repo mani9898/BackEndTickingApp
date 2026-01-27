@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--        Database Connection:-->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">Samrit22!</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- SQL Dialect: -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- DDL -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Show/Format SQL statements -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- We need this to be able to persiste Employee objects -->
+        <mapping class="org.example.model.Employee"/>
+
+
+    </session-factory>
+</hibernate-configuration>

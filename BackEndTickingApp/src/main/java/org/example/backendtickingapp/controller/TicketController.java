@@ -50,6 +50,12 @@ public class TicketController {
         return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
+    @GetMapping("/tickets")
+    public ResponseEntity<List<Ticket>> getAllTickets() {
+        List<Ticket> tickets = ticketService.findAllTickets();
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    }
+
     @GetMapping("/tickets/orderbydate/{userName}")
     public ResponseEntity<List<Ticket>> getTicketsByUserName(@PathVariable String userName) {
         List<Ticket> tickets = ticketService.findAllTicketsByAccendingDate(userName);
