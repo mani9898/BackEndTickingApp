@@ -7,6 +7,9 @@ import org.example.backendtickingapp.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class EmployeeService {
 
@@ -39,6 +42,10 @@ public class EmployeeService {
 
     public boolean isEmployeeExists(String username) {
         return employeeRepository.findByUsername(username) != null;
+    }
+
+    public void testMehthod(){
+
     }
 
 }

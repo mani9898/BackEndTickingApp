@@ -7,6 +7,7 @@ import org.example.backendtickingapp.model.TicketStatus;
 import org.example.backendtickingapp.repositories.EmployeeRepository;
 import org.example.backendtickingapp.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -91,6 +92,14 @@ public class TicketService {
             return ticketRepository.save(ticket);
         }
         return null;
+    }
+    public void deleteTicketById(Long ticketId) {
+        try {
+            ticketRepository.deleteById(ticketId);
+        } catch (EmptyResultDataAccessException e) {
+            // Ticket with the given ID does not exist, handle accordingly
+            System.out.println("Ticket with ID " + ticketId + " does not exist." );
+        }
     }
 
 }

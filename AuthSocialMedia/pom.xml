@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.1</version>
+        <version>4.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>BackEndTickingApp</artifactId>
+    <artifactId>AuthSocialMedia</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BackEndTickingApp</name>
-    <description>BackEndTickingApp</description>
+    <name>AuthSocialMedia</name>
+    <description>AuthSocialMedia</description>
     <url/>
     <licenses>
         <license/>
